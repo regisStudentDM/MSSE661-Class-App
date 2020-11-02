@@ -1,0 +1,9 @@
+p {
+    background-color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+p .quote {
+    color: aqua;
+}
