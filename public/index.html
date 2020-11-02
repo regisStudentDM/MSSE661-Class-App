@@ -3,29 +3,49 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="flexbox.css" />
         <title>Build Fluid Layout</title>
     </head>
     <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div>  
-            <p></p>
-        </div>
-
         <div class="main">
-            <p>Feature 1</p>
-        </div>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </header>
 
-        <footer>
-            <nav></nav>
-            <p>Author DSM</p>
-        </footer>
+            <div class="content">  
+                <form class="login">
+                    <label for="username">
+                        Username:
+                        <input id="username" type="text">
+                    </label>
+                    <label for="password">
+                        Password:
+                        <input id="password" type="text">
+                    </label>
+                </form>
+            </div>
+    
+            <div class="main">
+                <p>Feature 1</p>
+            </div>
+    
+            <footer>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+                <p>Author: <a href="https://github.com/regisStudentDM/MSSE661-Class-App">regisStudentDM</a></p>
+                </footer>        
+        </div>
     </body>
+    <script src="../src/app.js">
+        
+    </script>
 </html>
