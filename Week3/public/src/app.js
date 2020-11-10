@@ -20,4 +20,4 @@ class Person {
 
 }
 
-console.log(new Person('Bob', 'Smith', 50).getFullName());
+console.log(new Person('Bob', 'Jones', 50).getFullName());
