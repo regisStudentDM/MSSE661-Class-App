@@ -1,7 +1,7 @@
 const doLogin = function(e) {
     e.preventDefault();
-    const username = document.getElementById('username').nodeValue;
-    const password = document.getElementById('password').nodeValue;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
     login({
         username: username,
@@ -13,14 +13,14 @@ const doLogin = function(e) {
 
 const doRegister = function(e) {
     e.preventDefault();
-    const username = document.getElementById('username').nodeValue;
-    const email = document.getElementById('email').nodeValue;
-    const password = document.getElementById('password').nodeValue;
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     register({
         username: username,
-        email, email,
-        password, password
+        email: email,
+        password: password
     }).then(function(res){
         window.location.href = 'home.html'
     });
