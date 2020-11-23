@@ -1,4 +1,7 @@
 debug.log
 launch.json
 .vscode/
+Week1/node_modules/*
+Week2/node_modules/*
 Week3/node_modules/*
+Week4/node_modules/*

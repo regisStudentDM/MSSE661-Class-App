@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/styles.css" />
         <link rel="stylesheet" href="./css/flexbox.css" />
-        <title>Login</title>
+        <title>Register</title>
     </head>
     <body>
         <div class="main wrapper">
@@ -20,18 +20,22 @@
 
             <div class="content">
                 <div class="center">
-                    <h2>Login</h2>
+                    <h2>Register</h2>
                     <form novalidate>
                         <label for="username">
                             <span>Username:</span>
                             <input id="username" type="text" placeholder="Username"/>
                         </label>
+                        <label for="email">
+                            <span>Email:</span>
+                            <input id="email" type="email" placeholder="Email"/>
+                        </label>
                         <label for="password">
                             <span>Password:</span>
                             <input id="password" type="password" placeholder="Password"/>
                         </label>
-                        <button onclick="doLogin(event)">Submit</button>
-                        <a href="./register.html">Register</a>
+                        <button onclick="doRegister(event)">Register</button>
+                        <a href="./index.html">Already signed up?</a>
                     </form>
                 </div>
             </div>
