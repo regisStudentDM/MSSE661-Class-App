@@ -6,49 +6,40 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/flexbox.css" />
     <link rel="stylesheet" href="./css/header.css" />
-    <title>Register</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Home</title>
   </head>
   <body>
     <div class="main wrapper">
       <header>
         <nav>
-          <ul>
+          <ul class="nav-list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about.html">About</a></li>
           </ul>
+          <div>
+            <a id="logout" href="" onclick="doLogout(event)">Logout</a>
+          </div>
         </nav>
       </header>
 
       <div class="content">
-        <div class="center">
-          <h2>Register</h2>
-          <form novalidate>
-            <label for="username">
-              <span>Username:</span>
-              <input id="username" type="text" placeholder="Username" />
-            </label>
-            <label for="email">
-              <span>Email:</span>
-              <input id="email" type="email" placeholder="Email" />
-            </label>
-            <label for="password">
-              <span>Password:</span>
-              <input id="password" type="password" placeholder="Password" />
-            </label>
-            <button onclick="doRegister(event)">Register</button>
-            <a href="./login.html">Already signed up?</a>
-          </form>
+        <div id="tasks">
+          <div>Loading...</div>
         </div>
       </div>
 
       <footer>
         <p>Author: <a href="https://github.com/regisStudentDM/MSSE661-Class-App">regisStudentDM</a></p>
-    </footer>
+      </footer>
     </div>
+    <script src="./src/api.config.js"></script>
     <script src="./src/simple-storage.js"></script>
     <script src="./src/service-helpers.js"></script>
-    <script src="./src/api.config.js"></script>
     <script src="./src/auth.service.js"></script>
+    <script src="./src/tasks.service.js"></script>
+    <script src="./src/route-guard.js"></script>
+    <script src="./src/build-tasks-list.js"></script>
     <script src="./src/app.js"></script>
   </body>
 </html>

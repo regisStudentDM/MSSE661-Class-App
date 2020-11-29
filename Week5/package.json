@@ -1,7 +1,7 @@
 {
-  "name": "week3",
+  "name": "week5",
   "version": "1.0.0",
-  "description": "Serving out website to a browser and extend our website's capabilities with an API.",
+  "description": "Serving our website to a browser and extend our website's capabilities with an API.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server"

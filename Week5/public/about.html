@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./css/styles.css" />
-        <title>Build Fluid Layout</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                </ul>
-            </nav>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/flexbox.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <title>About</title>
+  </head>
+  <body>
+    <div class="main wrapper">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+          </ul>
+        </nav>
+      </header>
 
-        <div>
-            <p>Feature 1</p>
+      <div class="content">
+        <div class="center">
+          <h2>Some stuff about a site.</h2>
         </div>
+      </div>
 
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                </ul>
-            </nav>
-            <p>Author: <a href="https://github.com/regisStudentDM/MSSE661-Class-App">regisStudentDM</a></p>
-        </footer>
-    </body>
+      <footer>
+        <p>Author: <a href="https://github.com/regisStudentDM/MSSE661-Class-App">regisStudentDM</a></p>
+      </footer>
+    </div>
+    <script src="./src/api.config.js"></script>
+    <script src="./src/simple-storage.js"></script>
+    <script src="./src/simple-storage.js"></script>
+    <script src="./src/service-helpers.js"></script>
+    <script src="./src/auth.service.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
 </html>
