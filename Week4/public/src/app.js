@@ -7,7 +7,7 @@ const doLogin = function(e) {
         username: username,
         password: password
     }).then(function(res){
-        window.location.href = 'parts.html';
+        window.location.href = 'home.html';
     });
 };
 
@@ -22,7 +22,7 @@ const doRegister = function(e) {
         email: email,
         password: password
     }).then(function(res){
-        window.location.href = 'parts.html'
+        window.location.href = 'home.html'
     });
 };
 

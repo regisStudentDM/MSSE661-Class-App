@@ -11,7 +11,7 @@ const doLogin = async (e) => {
     setStorage('access_token', access_token);
     setStorage('refresh_token', refresh_token);
   
-    window.location.href = 'parts.html';
+    window.location.href = 'home.html';
   };
   
   const doRegister = (e) => {
