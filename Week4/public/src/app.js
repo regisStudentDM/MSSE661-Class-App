@@ -24,7 +24,6 @@ const doRegister = function(e) {
     }).then(function(res){
         window.location.href = 'home.html'
     });
-    
 };
 
 const doLogout = function(e) {
