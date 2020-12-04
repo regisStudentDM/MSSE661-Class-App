@@ -67,6 +67,53 @@
         </form>
       </div>
 
+      <form>
+        <div class="form-row">
+          <div class="col-md-3">
+            <label class="sr-only" for="formTaskToEditName">Current Name of Task To Edit</label>
+            <select
+              id="formTaskToEditName"
+              class="custom-select mr-sm-2"
+              name="task-name"
+            >
+              <option value="1" selected>task1-user1</option>
+              <option value="2">task1-user2</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="sr-only" for="c">Updated Task Name</label>
+            <input
+              id="formUpdatedTaskName"
+              class="form-control"
+              type="text"
+              name="task-name"
+              placeholder="Task name"
+            />
+          </div>
+          <div class="col-md-3">
+            <label class="sr-only" for="formUpdatedSelectStatus">Updated Status</label>
+            <select
+              id="formUpdatedSelectStatus"
+              class="custom-select mr-sm-2"
+              name="task-name"
+            >
+              <option value="1" selected>pending</option>
+              <option value="2">completed</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onclick="doUpdateTask(event)"
+            >
+              COMMIT UPDATE
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
       <div id="tasks">
         <div>Loading...</div>
       </div>
