@@ -69,8 +69,8 @@
 
       <form>
         <div class="form-row">
-          <div class="col-md-3">
-            <label class="sr-only" for="formTaskToEditName">Current Name of Task To Edit</label>
+          <div class="col-sm">
+            <label for="formTaskToEditName">Current Name of Task To Edit</label>
             <select
               id="formTaskToEditName"
               class="custom-select mr-sm-2"
@@ -80,18 +80,18 @@
               <option value="2">task3 user 3</option>
             </select>
           </div>
-          <div class="col-md-6">
-            <label class="sr-only" for="c">Updated Task Name</label>
+          <div class="col-sm">
+            <label for="c">Updated Task Name</label>
             <input
               id="formUpdatedTaskName"
               class="form-control"
               type="text"
               name="task-name"
-              placeholder="Task name"
+              placeholder="Updated Task name"
             />
           </div>
-          <div class="col-md-3">
-            <label class="sr-only" for="formUpdatedSelectStatus">Updated Status</label>
+          <div class="col-sm">
+            <label for="formUpdatedSelectStatus">Updated Task Status</label>
             <select
               id="formUpdatedSelectStatus"
               class="custom-select mr-sm-2"
@@ -101,8 +101,10 @@
               <option value="2">completed</option>
             </select>
           </div>
-          <div class="col-md-3">
+          <div class="col-sm">
             <button
+              style="margin-top: 32px;"
+              id = "btnCommitUpdate"
               type="submit"
               class="btn btn-primary"
               onclick="doUpdateTask(event)"

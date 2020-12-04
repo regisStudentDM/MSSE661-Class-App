@@ -60,6 +60,7 @@ const doAddTask = async (e) => {
   
     if (res !== null) {
       inst.generateTasks();
+      console.log(inst.taskNames);
     }
     taskInput.value = '';
   };

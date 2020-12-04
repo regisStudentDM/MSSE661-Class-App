@@ -6,6 +6,7 @@
 
 class TaskList {
   tasks = [];
+  taskNames = [];
 
   constructor() {}
 
@@ -19,6 +20,7 @@ class TaskList {
     ul.className = 'list-group list-group-flush checked-list-box';
     return ul;
   };
+
 
   _deleteEventHandler = (taskId) => async () => {
     if (taskId) {
@@ -119,7 +121,26 @@ class TaskList {
       const errDiv = this.generateErrorMsg(res.msg);
       div.replaceChild(errDiv, loadingDiv);
     }
+
+    for (const option of [...document.querySelector('#formTaskToEditName').options]) {
+      option.remove();
+    }
+
+    var myList = document.getElementById("formTaskToEditName");
+
+    var o;
+
+    for (let index = 0; index < this.tasks.length; index++) {
+      o = document.createElement("option");
+      o.value = this.tasks[index].task_name;
+      o.text = this.tasks[index].task_name;
+      myList.appendChild(o);
+    }
+
+    myList.selectedIndex = 0;
+
   };
+
 }
 
 const inst = new TaskList();
@@ -127,4 +148,5 @@ const inst = new TaskList();
 // This is an IIFE (Immediately Invoked Function Expression).
 (async () => {
   inst.generateTasks();
+  console.log(inst.taskNames);
 })();
