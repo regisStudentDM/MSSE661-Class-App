@@ -35,6 +35,21 @@ const _get = async (url, options = DEFAULT_OPTIONS_WITH_AUTH) => {
 };
 
 /**
+ * Generic Read API handler.
+ *
+ * @param {string} url - address to make request to
+ * @param {any} options - additional options to send. Defaults to options with auth headers
+ */
+const _get_with_params = async (url, options = DEFAULT_OPTIONS_WITH_AUTH) => {
+  const res = await fetch(url, {
+    method: 'GET',
+    ...options,
+  });
+  console.log(res.body);
+  return res.json();
+};
+
+/**
  * Generic Create API handler.
  *
  * @param {string} url - address to make request to
