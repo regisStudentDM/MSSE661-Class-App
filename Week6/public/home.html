@@ -11,7 +11,7 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <title>Your Tasks</title>
+    <title>Your Parts</title>
   </head>
   <body>
     <header>
@@ -30,35 +30,34 @@
     </header>
 
     <div class="container">
-      <div class="task-form">
+      <div class="part-form">
         <form>
           <div class="form-row">
             <div class="col-md-6">
-              <label class="sr-only" for="formInputTaskName">Task Name</label>
+              <label class="sr-only" for="formInputPartName">Part Name</label>
               <input
-                id="formInputTaskName"
+                id="formInputPartName"
                 class="form-control"
                 type="text"
-                name="task-name"
-                placeholder="Task name"
+                name="part-name"
+                placeholder="Part name"
               />
             </div>
             <div class="col-md-3">
-              <label class="sr-only" for="formSelectStatus">Status</label>
-              <select
-                id="formSelectStatus"
-                class="custom-select mr-sm-2"
-                name="task-name"
-              >
-                <option value="1" selected>pending</option>
-                <option value="2">completed</option>
-              </select>
+              <label class="sr-only" for="formInputPartUnit">Status</label>
+              <input
+                id="formInputPartUnit"
+                class="form-control"
+                type="text"
+                name="part-unit"
+                placeholder="Part unit"
+              />
             </div>
             <div class="col-md-3">
               <button
                 type="submit"
                 class="btn btn-primary"
-                onclick="doAddTask(event)"
+                onclick="doAddPart(event)"
               >
                 ADD
               </button>
@@ -70,36 +69,35 @@
       <form>
         <div class="form-row">
           <div class="col-sm">
-            <label for="formTaskToEditName">Current Name of Task To Edit</label>
+            <label for="formPartToEditName">Current Name of Part To Edit</label>
             <select
-              id="formTaskToEditName"
+              id="formPartToEditName"
               class="custom-select mr-sm-2"
-              name="task-name"
+              name="part-name"
             >
-              <option value="1" selected>task1-user1</option>
-              <option value="2">task3 user 3</option>
+              <option value="1" selected>Part 1</option>
+              <option value="2">Part 2</option>
             </select>
           </div>
           <div class="col-sm">
-            <label for="c">Updated Task Name</label>
+            <label for="c">Updated Part Name</label>
             <input
-              id="formUpdatedTaskName"
+              id="formUpdatedPartName"
               class="form-control"
               type="text"
-              name="task-name"
-              placeholder="Updated Task name"
+              name="part-name"
+              placeholder="Updated Part name"
             />
           </div>
           <div class="col-sm">
-            <label for="formUpdatedSelectStatus">Updated Task Status</label>
-            <select
-              id="formUpdatedSelectStatus"
-              class="custom-select mr-sm-2"
-              name="task-name"
-            >
-              <option value="1" selected>pending</option>
-              <option value="2">completed</option>
-            </select>
+            <label for="formUpdatedPartUnit">Updated Part Unit</label>
+            <input
+              id="formUpdatedPartUnit"
+              class="form-control"
+              type="text"
+              name="part-unit"
+              placeholder="Updated Part unit"
+            />
           </div>
           <div class="col-sm">
             <button
@@ -107,7 +105,7 @@
               id = "btnCommitUpdate"
               type="submit"
               class="btn btn-primary"
-              onclick="doUpdateTask(event)"
+              onclick="doUpdatePart(event)"
             >
               COMMIT UPDATE
             </button>
@@ -116,7 +114,7 @@
       </form>
     </div>
 
-      <div id="tasks">
+      <div id="parts">
         <div>Loading...</div>
       </div>
     </div>
@@ -131,9 +129,9 @@
     <script src="./src/route-guard.js"></script>
     <script src="./src/service-helpers.js"></script>
     <script src="./src/auth.service.js"></script>
-    <script src="./src/tasks.service.js"></script>
-    <script src="./src/build-tasks-list.js"></script>
-    <script src="./src/add-task.js"></script>
+    <script src="./src/parts.service.js"></script>
+    <script src="./src/build-parts-list.js"></script>
+    <script src="./src/add-part.js"></script>
     <script src="./src/auth.js"></script>
   </body>
 </html>
