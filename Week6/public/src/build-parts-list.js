@@ -70,7 +70,7 @@ class PartList {
     partNameSpan.appendChild(partName);
 
     const partUnitSpan = document.createElement('span');
-    const partUnit = document.createTextNode(part.unit);
+    const partUnit = document.createTextNode(part.part_unit);
     partUnitSpan.append(partUnit);
 
     // add list item's details
@@ -122,7 +122,7 @@ class PartList {
     }
 
     var myList = document.getElementById("formPartToEditName");
-
+    unit
     var o;
 
     for (let index = 0; index < this.parts.length; index++) {
