@@ -140,9 +140,6 @@ class PartListBuilder {
    * @param {number} partId - id of the part to delete
    */
   deletePartByID = async (partId) => {
-    const part = document.getElementById(`part-${partId}`);
-    part.remove();
-    this.parts = this.parts.filter((part) => part.part_id !== partId);
     try {
       const res = await this.partsService.deletePart(partId);
       if (res !== null) {
@@ -168,6 +165,12 @@ class PartListBuilder {
 
     if (partinfo){
       var partIDOfPartToDelete = partinfo[0].part_id;
+
+      const part = document.getElementById(`part-${partIDOfPartToDelete}`);
+      part.remove();
+
+      this.parts = this.parts.filter((part) => part.part_id !== partIDOfPartToDelete);  
+
       this.deletePartByID(partIDOfPartToDelete);
     }
 

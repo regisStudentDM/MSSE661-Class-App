@@ -1,4 +1,4 @@
-const doLogin = (e) => {
+const doLogin = async (e) => {
   e.preventDefault();
 
   const username = document.getElementById('formInputUsername').value;
@@ -6,12 +6,12 @@ const doLogin = (e) => {
 
   try {
     const res = authService.login({ username, password });
-    const { auth, expires_in, access_token, refresh_token } = res;
+    const { auth, access_token, expires_in, refresh_token } = res;
     const expiryDate = authService.setExpiration(expires_in);
 
     setStorage('isAuth', auth);
-    setStorage('expires_in', expiryDate);
     setStorage('access_token', access_token);
+    setStorage('expires_in', expiryDate);
     setStorage('refresh_token', refresh_token);
 
     if (res) {
@@ -22,7 +22,7 @@ const doLogin = (e) => {
   }
 };
 
-const doRegister = (e) => {
+const doRegister = async (e) => {
   e.preventDefault();
 
   const username = document.getElementById('formInputUsernameReg').value;
