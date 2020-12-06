@@ -1,10 +1,10 @@
 {
-  "name": "week6",
+  "name": "week7",
   "version": "1.0.0",
   "description": "Serving our website to a browser and extend our website's capabilities with an API.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server"
+    "start": "nodemon ./server/index.js"
   },
   "author": "",
   "license": "ISC",
