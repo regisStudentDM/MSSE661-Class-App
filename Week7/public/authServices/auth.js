@@ -1,11 +1,11 @@
-const doLogin = async (e) => {
+const doLogin = (e) => {
   e.preventDefault();
 
   const username = document.getElementById('formInputUsername').value;
   const password = document.getElementById('formInputPassword').value;
 
   try {
-    const res = await authService.login({ username, password });
+    const res = authService.login({ username, password });
     const { auth, expires_in, access_token, refresh_token } = res;
     const expiryDate = authService.setExpiration(expires_in);
 
@@ -22,7 +22,7 @@ const doLogin = async (e) => {
   }
 };
 
-const doRegister = async (e) => {
+const doRegister = (e) => {
   e.preventDefault();
 
   const username = document.getElementById('formInputUsernameReg').value;
@@ -30,7 +30,7 @@ const doRegister = async (e) => {
   const password = document.getElementById('formInputPasswordReg').value;
 
   try {
-    const res = await authService.register({
+    const res = authService.register({
       username,
       email,
       password,
