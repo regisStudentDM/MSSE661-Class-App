@@ -23,9 +23,9 @@ class PartListBuilder {
    */
   addPartByObjectSpecification = async (newPartMinusID) => {
     try {
-      resp = await this.partsService.addPart(newPartMinusID);
+      const resp = await this.partsService.addPart(newPartMinusID);
 
-      if (resp.length) {
+      if (resp) {
         this.render();
       } else {
         alert('Unable to add part. Please try again later.');
@@ -41,7 +41,7 @@ class PartListBuilder {
   /**
    * DOM Event handler helper for adding a part to the DOM.
    */
-  _addPartByUserFormInputs = () => {
+  _addPartByUserFormInputs = async () => {
     const partInput = document.getElementById('formInputPartName');
     const part_name = partInput.value;
 	
@@ -70,7 +70,6 @@ class PartListBuilder {
    */
   updatePartByPartName = async (partToUpdateName, part_name, part_unit) => {
     try {
-      
       if (!partToUpdateName) {
         alert('Please select a part to update!.');
         return;      
@@ -90,9 +89,9 @@ class PartListBuilder {
 
       var partIDOfUpdatedPart = partinfo[0].part_id;
       
-      resp = await this.partsService.updatePart({part_name, part_unit}, partIDOfUpdatedPart);
+      const resp = await this.partsService.updatePart({part_name, part_unit}, partIDOfUpdatedPart);
 
-      if (resp.length) {
+      if (resp) {
         this.render();
       } else {
         alert('Unable to update part. Please try again later.');
@@ -108,7 +107,7 @@ class PartListBuilder {
   /**
    * DOM Event handler helper for adding a part to the DOM.
    */
-  _updatePartByUserFormInputs = () => {
+  _updatePartByUserFormInputs = async () => {
     const oldPartNameSelect = document.getElementById('formPartToEditName');
     const oldPartSelectOptions = oldPartNameSelect.options;
     const oldPartSelectedIndex = oldPartNameSelect.selectedIndex;
@@ -140,40 +139,45 @@ class PartListBuilder {
    *
    * @param {number} partId - id of the part to delete
    */
-  deletePartByID = (partId) => () => {
+  deletePartByID = async (partId) => {
     const part = document.getElementById(`part-${partId}`);
     part.remove();
     this.parts = this.parts.filter((part) => part.part_id !== partId);
-
-    this._callDeleteService(partId).then(() => {
-      if (!this.parts.length) {
-        this._renderMsg();
-      }
-    });
-  };
-
-    /**
-   * Pure function for deleting a part.
-   *
-   * @param {number} partId - id for the part to be deleted
-   */
-  _callDeleteService = async (partId) => {
     try {
       const res = await this.partsService.deletePart(partId);
       if (res !== null) {
         alert('Part deleted successfully!');
+        if (!this.parts.length) {
+          this._renderMsg();
+        } else{
+          this.render();
+        }
       }
-      return res;
     } catch (err) {
       alert('Unable to delete part. Please try again later.');
     }
+  };
+
+  _deletePartByUserFormInputs = async () => {
+    const oldPartNameSelect = document.getElementById('formPartToEditName');
+    const oldPartSelectOptions = oldPartNameSelect.options;
+    const oldPartSelectedIndex = oldPartNameSelect.selectedIndex;
+    var partToDeleteName = oldPartSelectOptions[oldPartSelectedIndex].text;
+
+    const partinfo = await getPartIDByUserAndPartName(partToDeleteName);
+
+    if (partinfo){
+      var partIDOfPartToDelete = partinfo[0].part_id;
+      this.deletePartByID(partIDOfPartToDelete);
+    }
+
   };
 
   render = async () => {
     const parts = await this.partsService.getParts();
 
     try {
-      if (parts.length) {
+      if (parts) {
         this.parts = parts;
         this._renderList();
       } else {
@@ -202,23 +206,15 @@ class PartListBuilder {
     listGroupItem.id = `part-${part.part_id}`; // part-1
     listGroupItem.className = 'list-group-item';
 
-    const deleteBtn = document.createElement('button');
-    const deleteBtnTxt = document.createTextNode('X');
-    deleteBtn.id = 'delete-btn';
-    deleteBtn.className = 'btn btn-secondary';
-    deleteBtn.addEventListener('click', this.deletePart(part.part_id));
-    deleteBtn.appendChild(deleteBtnTxt);
-
     const partNameSpan = document.createElement('span');
     const partName = document.createTextNode(part.part_name);
     partNameSpan.appendChild(partName);
 
     const partUnitSpan = document.createElement('span');
     const partUnit = document.createTextNode(part.part_unit);
-    partUnitSpan.append(partUnit);
+    partUnitSpan.appendChild(partUnit);
 
     // add list item's details
-    listGroupItem.append(deleteBtn);
     listGroupItem.append(partNameSpan);
     listGroupItem.append(partUnitSpan);
 

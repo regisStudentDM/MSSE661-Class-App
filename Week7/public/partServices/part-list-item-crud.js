@@ -10,3 +10,8 @@ const doAddPart = async (e) => {
     e.preventDefault();
     partListBuilder._updatePartByUserFormInputs();
   };
+
+  const doDeletePart = async (e) => {
+    e.preventDefault();
+    partListBuilder._deletePartByUserFormInputs();
+  };

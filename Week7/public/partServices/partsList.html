@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styleServices/reset.css" />
-    <link rel="stylesheet" href="/styleServices/main.css" />
+    <link rel="stylesheet" href="../styleServices/reset.css" />
+    <link rel="stylesheet" href="../styleServices/main.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,10 +19,10 @@
         <a class="navbar-brand" href="#"></a>
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/index.html">Home</a>
+            <a class="nav-link" href="../index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about.html">About</a>
+            <a class="nav-link" href="../about.html">About</a>
           </li>
         </ul>
         <a id="logout" href="" onclick="doLogout(event)">Logout</a>
@@ -110,14 +110,24 @@
               COMMIT UPDATE
             </button>
           </div>
+          <div class="col-sm">
+            <button
+              style="margin-top: 32px;"
+              id = "btnDeleteSelection"
+              type="submit"
+              class="btn btn-primary"
+              onclick="doDeletePart(event)"
+            >
+              DELETE SELECTED PART NAME
+            </button>
+          </div>
         </div>
       </form>
     </div>
 
-      <div id="parts">
-        <div>Loading...</div>
-      </div>
-    </div>
+    <div id="parts">Loading...</div>
+
+  </div>
 
     <footer>
       <div class="author">
@@ -130,9 +140,9 @@
     <script src="../authServices/auth.service.js"></script>
     <script src="../authServices/auth.js"></script>
     <script src="../authServices/auth.guard.js"></script>
-    <script src="../apiServices/parts-api.service.js"></script>
-    <script src="../partServices/part-list-builder.service.js"></script>
-    <script src="../partServices/part-list-item-crud.js"></script>
-    <script src="../partServices/init-part-list-builder.js"></script>
+    <script src="./parts-api.service.js"></script>
+    <script src="./part-list-builder.service.js"></script>
+    <script src="./part-list-item-crud.js"></script>
+    <script src="./init-part-list-builder.js"></script>
   </body>
 </html>

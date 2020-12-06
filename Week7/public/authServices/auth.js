@@ -15,7 +15,7 @@ const doLogin = async (e) => {
     setStorage('refresh_token', refresh_token);
 
     if (res) {
-      window.location.href = '/partServices/partsList.html';
+      window.location.href = '../partServices/partsList.html';
     }
   } catch (err) {
     alert('Failed to login. Please try again later.');
@@ -37,7 +37,7 @@ const doRegister = async (e) => {
     });
 
     if (res) {
-      window.location.href = '/index.html';
+      window.location.href = '../index.html';
     }
   } catch (err) {
     alert('Failed to register. Please try again later.');
