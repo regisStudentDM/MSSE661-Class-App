@@ -26,6 +26,9 @@ class PartListBuilder {
       const resp = await this.partsService.addPart(newPartMinusID);
 
       if (resp) {
+        if(resp.error){
+          alert(resp.error.msg);
+        }
         this.render();
       } else {
         alert('Unable to add part. Please try again later.');
@@ -60,7 +63,11 @@ class PartListBuilder {
       return;
     }
 
-    await this.addPartByObjectSpecification({ part_name, part_unit });
+    const res = await this.addPartByObjectSpecification({ part_name, part_unit });
+
+    partInput.value = "";
+    partUnitInput.value = "";
+
   };
 
   /**
@@ -130,7 +137,10 @@ class PartListBuilder {
       return;
     }
 
-    await updatePartByPartName(partToUpdateName, part_name, part_unit);
+    const resp = await this.updatePartByPartName(partToUpdateName, part_name, part_unit);
+
+    partInput.value = "";
+    unitInput.value = "";
   };
 
   /**
@@ -142,15 +152,18 @@ class PartListBuilder {
   deletePartByID = async (partId) => {
     try {
       const res = await this.partsService.deletePart(partId);
+
+      console.log(res);
+
       if (res !== null) {
-        alert('Part deleted successfully!');
         if (!this.parts.length) {
-          this._renderMsg();
+          this.render();
         } else{
           this.render();
         }
       }
-    } catch (err) {
+    } 
+    catch (err) {
       alert('Unable to delete part. Please try again later.');
     }
   };
@@ -161,7 +174,11 @@ class PartListBuilder {
     const oldPartSelectedIndex = oldPartNameSelect.selectedIndex;
     var partToDeleteName = oldPartSelectOptions[oldPartSelectedIndex].text;
 
-    const partinfo = await getPartIDByUserAndPartName(partToDeleteName);
+    console.log(partToDeleteName);
+
+    const partinfo = await this.partsService.getPartIDByUserAndPartName(partToDeleteName);
+
+    console.log(partinfo);
 
     if (partinfo){
       var partIDOfPartToDelete = partinfo[0].part_id;
@@ -171,17 +188,23 @@ class PartListBuilder {
 
       this.parts = this.parts.filter((part) => part.part_id !== partIDOfPartToDelete);  
 
-      this.deletePartByID(partIDOfPartToDelete);
+      const resp = await this.deletePartByID(partIDOfPartToDelete);
     }
 
   };
 
   render = async () => {
     const parts = await this.partsService.getParts();
-
+  
     try {
       if (parts) {
+        if (parts.msg) {
+          this._renderMsg();
+          this._updatePartEditSelections();
+          return;
+        }
         this.parts = parts;
+
         this._renderList();
       } else {
         this._renderMsg();

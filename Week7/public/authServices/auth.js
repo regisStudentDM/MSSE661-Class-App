@@ -5,10 +5,11 @@ const doLogin = async (e) => {
   const password = document.getElementById('formInputPassword').value;
 
   try {
-    const res = authService.login({ username, password });
+    const res = await authService.login({ username, password });
     const { auth, access_token, expires_in, refresh_token } = res;
     const expiryDate = authService.setExpiration(expires_in);
-
+    console.log(res);
+    
     setStorage('isAuth', auth);
     setStorage('access_token', access_token);
     setStorage('expires_in', expiryDate);
@@ -18,6 +19,7 @@ const doLogin = async (e) => {
       window.location.href = '../partServices/partsList.html';
     }
   } catch (err) {
+    console.log(err);
     alert('Failed to login. Please try again later.');
   }
 };
@@ -30,7 +32,7 @@ const doRegister = async (e) => {
   const password = document.getElementById('formInputPasswordReg').value;
 
   try {
-    const res = authService.register({
+    const res = await authService.register({
       username,
       email,
       password,

@@ -10,6 +10,9 @@ const getStorage = (key) => {
     return null;
   }
   const decodedData = atob(encodedData);
+  if (!decodedData) {
+    return null;
+  }
   return JSON.parse(decodedData);
 };
 
