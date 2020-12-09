@@ -5,6 +5,8 @@ class PartsService{
 
   getPartIDByUserAndPartName = (partName) => _get_with_params(`${PARTS_API}/getPartIdByName/${partName}`, DEFAULT_OPTIONS_WITH_AUTH);
   
+  getPartByID = (partID) => _get_with_params(`${PARTS_API}/${partID}`, DEFAULT_OPTIONS_WITH_AUTH);
+  
   addPart = (formData) => _post(PARTS_API, formData, DEFAULT_OPTIONS_WITH_AUTH);
   
   updatePart = (formData, partId) => _put(`${PARTS_API}/${partId}`, formData, DEFAULT_OPTIONS_WITH_AUTH);

@@ -24,7 +24,7 @@ class PartListBuilder {
   addPartByObjectSpecification = async (newPartMinusID) => {
     try {
       const resp = await this.partsService.addPart(newPartMinusID);
-
+      
       if (resp) {
         if(resp.error){
           alert(resp.error.msg);
@@ -99,7 +99,7 @@ class PartListBuilder {
       const resp = await this.partsService.updatePart({part_name, part_unit}, partIDOfUpdatedPart);
 
       if (resp) {
-        this.render();
+        return resp;
       } else {
         alert('Unable to update part. Please try again later.');
         return;
@@ -139,6 +139,8 @@ class PartListBuilder {
 
     const resp = await this.updatePartByPartName(partToUpdateName, part_name, part_unit);
 
+    this.render();
+
     partInput.value = "";
     unitInput.value = "";
   };
@@ -153,14 +155,8 @@ class PartListBuilder {
     try {
       const res = await this.partsService.deletePart(partId);
 
-      console.log(res);
-
       if (res !== null) {
-        if (!this.parts.length) {
-          this.render();
-        } else{
-          this.render();
-        }
+        return res;
       }
     } 
     catch (err) {
@@ -178,8 +174,6 @@ class PartListBuilder {
 
     const partinfo = await this.partsService.getPartIDByUserAndPartName(partToDeleteName);
 
-    console.log(partinfo);
-
     if (partinfo){
       var partIDOfPartToDelete = partinfo[0].part_id;
 
@@ -189,6 +183,8 @@ class PartListBuilder {
       this.parts = this.parts.filter((part) => part.part_id !== partIDOfPartToDelete);  
 
       const resp = await this.deletePartByID(partIDOfPartToDelete);
+
+      this.render();
     }
 
   };

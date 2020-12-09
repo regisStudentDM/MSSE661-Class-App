@@ -65,7 +65,6 @@ const _post = async (url, data, options = DEFAULT_OPTIONS) => {
     ...options,
     body: JSON.stringify(data),
   });
-
   return res.json();
 };
 
@@ -77,7 +76,7 @@ const _post = async (url, data, options = DEFAULT_OPTIONS) => {
  * @param {any} data - updates to send
  * @param {any} options - additional options to send. Defaults to options with auth headers
  */
-const _put = async (url, data, options = DEFAULT_OPTIONS_WITH_AUTH) => {
+const _put = async (url, data, options = DEFAULT_OPTIONS_WITH_AUTH) => {  
   const res = await fetch(url, {
     method: 'PUT',
     ...options,
