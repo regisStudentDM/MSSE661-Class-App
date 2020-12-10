@@ -1,12 +1,19 @@
-(async () => {
-    const currUsername = document.getElementById('formInputUsernameReg');
-    const currEmail = document.getElementById('formInputEmailReg');
-    const currPassWord = document.getElementById('formInputNewPasswordReg');
+const myLoad = async () => {
 
-    authAPIService = new AuthAPIService();
+    try {
+        authAPIService = new AuthAPIService();
 
-    const resp = await authAPIService.getUser();
+        resp = await authAPIService.getUser();
     
-    currUsername.value = resp[0].username;
-    currEmail.value = resp[0].email;
-  })(); 
+        const currUsername = document.getElementById('formInputNewUsernameReg');
+        const currEmail = document.getElementById('formInputNewEmailReg');
+    
+        currUsername.value = resp[0].username;
+        currEmail.value = resp[0].email;  
+    } catch (error) {
+        console.log(error);
+    }
+  
+  };
+
+myLoad();
