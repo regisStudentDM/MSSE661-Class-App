@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styleServices/reset.css" />
+    <link rel="stylesheet" href="../styleServices/main.css" />
+    <link rel="stylesheet" href="../styleServices/settings.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>User Profile Settings</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../partServices/partsList.html">Back to Parts List</a>
+          </li>
+        </ul>
+        <a class="header-extras" id="logout" href="" onclick="doLogout(event)">Logout</a>
+      </nav>
+    </header>
+
+    <div class="center">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Settings</h2>
+          <form novalidate>
+            <div class="form-group">
+              <label for="formInputNewUsernameReg">Updated Username</label>
+              <input
+                id="formInputNewUsernameReg"
+                type="text"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formInputNewEmailReg">Updated Email</label>
+              <input id="formInputNewEmailReg" type="email" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="formInputNewPasswordReg">Updated Password</label>
+              <input
+                id="formInputNewPasswordReg"
+                type="password"
+                placeholder="Enter New Password"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary"  onclick="saveUpdatedChanges(event)">
+                Save Changes        
+              </button>
+            </div>
+            <div class="form-group">
+                <a href="../partServices/partsList.html" class="button">Cancel Changes</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="author">
+        <p>Author: <a href="https://github.com/regisStudentDM/MSSE661-Class-App">regisStudentDM</a></p>
+      </div>
+    </footer>
+    <script src="../apiServices/api.config.js"></script>
+    <script src="../apiServices/simple-storage.js"></script>
+    <script src="../apiServices/service-helpers.js"></script>
+    <script src="./auth.service.js"></script>
+    <script src="./auth-api-service.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./auth.guard.js"></script>
+    <script src="./loadCurrentSettings.js"></script>
+    <script src="./settings.js"></script>
+  </body>
+</html>

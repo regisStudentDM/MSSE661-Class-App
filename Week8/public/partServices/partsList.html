@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styleServices/reset.css" />
+    <link rel="stylesheet" href="../styleServices/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Your Parts</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../authServices/settings.html">Update User Settings</a>
+          </li>
+        </ul>
+        <a id="logout" href="" onclick="doLogout(event)">Logout</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="part-form">
+        <form>
+          <div class="form-row">
+            <div class="col-md-6">
+              <label class="sr-only" for="formInputPartName">Part Name</label>
+              <input
+                id="formInputPartName"
+                class="form-control"
+                type="text"
+                name="part-name"
+                placeholder="Part name"
+              />
+            </div>
+            <div class="col-md-3">
+              <label class="sr-only" for="formInputPartUnit">Status</label>
+              <input
+                id="formInputPartUnit"
+                class="form-control"
+                type="text"
+                name="part-unit"
+                placeholder="Part unit"
+              />
+            </div>
+            <div class="col-md-3">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                onclick="doAddPart(event)"
+              >
+                ADD
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <form>
+        <div class="form-row">
+          <div class="col-sm">
+            <label for="formPartToEditName">Current Name of Part To Edit</label>
+            <select
+              id="formPartToEditName"
+              class="custom-select mr-sm-2"
+              name="part-name"
+            >
+              <option value="1" selected>Part 1</option>
+              <option value="2">Part 2</option>
+            </select>
+          </div>
+          <div class="col-sm">
+            <label for="c">Updated Part Name</label>
+            <input
+              id="formUpdatedPartName"
+              class="form-control"
+              type="text"
+              name="part-name"
+              placeholder="Updated Part name"
+            />
+          </div>
+          <div class="col-sm">
+            <label for="formUpdatedPartUnit">Updated Part Unit</label>
+            <input
+              id="formUpdatedPartUnit"
+              class="form-control"
+              type="text"
+              name="part-unit"
+              placeholder="Updated Part unit"
+            />
+          </div>
+          <div class="col-sm">
+            <button
+              style="margin-top: 32px;"
+              id = "btnCommitUpdate"
+              type="submit"
+              class="btn btn-primary"
+              onclick="doUpdatePart(event)"
+            >
+              COMMIT UPDATE
+            </button>
+          </div>
+          <div class="col-sm">
+            <button
+              style="margin-top: 32px;"
+              id = "btnDeleteSelection"
+              type="submit"
+              class="btn btn-primary"
+              onclick="doDeletePart(event)"
+            >
+              DELETE SELECTED PART NAME
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="parts">Loading...</div>
+
+  </div>
+
+    <footer>
+      <div class="author">
+        <p>Author: <a href="https://github.com/regisStudentDM/MSSE661-Class-App">regisStudentDM</a></p>
+      </div>
+    </footer>
+    <script src="../apiServices/api.config.js"></script>
+    <script src="../apiServices/simple-storage.js"></script>
+    <script src="../apiServices/service-helpers.js"></script>
+    <script src="../authServices/auth.service.js"></script>
+    <script src="../authServices/auth.js"></script>
+    <script src="../authServices/auth.guard.js"></script>
+    <script src="./parts-api.service.js"></script>
+    <script src="./part-list-builder.service.js"></script>
+    <script src="./part-list-item-crud.js"></script>
+    <script src="./init-part-list-builder.js"></script>
+  </body>
+</html>
